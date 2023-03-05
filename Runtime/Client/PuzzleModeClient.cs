@@ -44,7 +44,7 @@ namespace ImageAnnotation.Client
 		[SerializeField]
         public PuzzleDoneEvent OnPuzzleDone = new PuzzleDoneEvent();
 		
-		public Action<SolvedPuzzle> OnPuzzleSolved;
+		public UnityEvent<SolvedPuzzle> OnPuzzleSolved;
         #endregion
         #region Private Variables
 
