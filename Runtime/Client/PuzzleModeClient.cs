@@ -44,7 +44,7 @@ namespace ImageAnnotation.Client
 		[SerializeField]
         public PuzzleDoneEvent OnPuzzleDone = new PuzzleDoneEvent();
 		
-		public UnityEvent<SolvedPuzzle> OnPuzzleSolved;
+		public UnityEvent<SolvedPuzzle> OnUserFinishedSolve;
         #endregion
         #region Private Variables
 
@@ -241,7 +241,7 @@ namespace ImageAnnotation.Client
 
 				}
             }
-            OnPuzzleSolved?.Invoke(solved);
+            OnUserFinishedSolve?.Invoke(solved);
             var solvedJson = JsonUtility.ToJson(solved);
             var scoreRequest = new PostObjectJson<PuzzleScore>("submit/", solvedJson);
             yield return new WaitUntil(() => scoreRequest.isDone);
